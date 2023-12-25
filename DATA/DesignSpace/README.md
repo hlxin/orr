@@ -18,20 +18,20 @@ Python Script Example:
 from ase.db import connect
 
 # Connecting to the database file
-db_OH = connect('data_OH.db')
+db_OH = connect('DesignSpace_OH.db')
 
 # Example: Querying information from the database
 # Fetching all entries
 all_entries = list(db_OH.select())
 
 # Querying based on specific criteria
-results = db_OH.select('type="Clean" and crystal_system="cubic"')
+results = db_OH.select(crystal_system="hexagonal", facet='1000')
 for entry in results:
-    print(entry)
+    print(entry.pretty_formula)
 ```
 
 ## Acknowledgments
-We acknowledge the Materials Project database [55] for providing the foundational data used to construct this database.
+We acknowledge the [Materials Project database](https://next-gen.materialsproject.org) for providing the foundational data used to construct this database.
 
 ## References and Documentation
 Materials Project Database - Source of foundational data for the PtML structures.
